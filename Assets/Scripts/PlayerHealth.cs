@@ -1,16 +1,21 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float health = 100f;
+
+    public void TakeDamage(float amount)
     {
-        
+        health -= amount;
+        if (health <= 0f)
+        {
+            Debug.Log("YOU DIED");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Heal(float amount)
     {
-        
+        health += amount;
+        health = Mathf.Clamp(health, 0f, 100f);
     }
 }
