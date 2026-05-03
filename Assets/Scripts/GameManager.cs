@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject enemyPrefab;
+    public Transform[] spawnPoints;
+
     void Start()
     {
-        
+        foreach (Transform t in spawnPoints)
+        {
+            Instantiate(enemyPrefab, t.position, Quaternion.identity);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            Debug.Log("YOU WIN");
+        }
     }
 }
