@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public float mouseSensitivity = 200f;
+    public float mouseSensitivity = 100f;
     public Transform cameraTransform;
 
     float xRotation = 0f;
