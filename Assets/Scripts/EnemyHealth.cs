@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float health = 100f;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float dmg)
     {
-        
+        health -= dmg;
+
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
