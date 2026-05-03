@@ -1476,6 +1476,7 @@ GameObject:
   - component: {fileID: 1308609729}
   - component: {fileID: 1308609728}
   - component: {fileID: 1308609731}
+  - component: {fileID: 1308609732}
   m_Layer: 3
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -1619,6 +1620,20 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &1308609732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308609726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b17fc83530b531c9b4672ce0c459b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Crosshair
+  size: 10
+  color: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1375969915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1676,7 @@ GameObject:
   - component: {fileID: 1630695498}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
