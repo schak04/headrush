@@ -15,11 +15,24 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        playerHealth = player.GetComponent<PlayerHealth>();
+        
+        // auto-find player if not assigned
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null) player = playerObj.transform;
+        }
+
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>();
+        }
     }
 
     void Update()
     {
+        if (player == null) return;
+
         agent.SetDestination(player.position);
 
         float dist = Vector3.Distance(transform.position, player.position);

@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     public GameObject enemyPrefab;
     public Transform[] spawnPoints;
 
+    bool isGameOver = false;
+
     void Start()
     {
         foreach (Transform t in spawnPoints)
@@ -15,9 +17,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (isGameOver) return;
+
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            Debug.Log("YOU WIN");
+            isGameOver = true;
+            Debug.Log("VICTORY ACHIEVED! ALL ENEMIES SLAUGHTERED!");
         }
     }
 }
