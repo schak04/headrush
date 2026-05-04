@@ -5,19 +5,24 @@ public class EnemyHealth : MonoBehaviour
     public float health = 100f;
     public Color hitColor = Color.red;
 
-    private Renderer rend;
-    private Color originalColor;
+    private Renderer[] renderers;
+    private Color[] originalColors;
 
     void Start()
     {
-        rend = GetComponent<Renderer>();
-        originalColor = rend.material.color;
+        renderers = GetComponentsInChildren<Renderer>();
+        originalColors = new Color[renderers.Length];
+        
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            originalColors[i] = renderers[i].material.color;
+        }
     }
 
     public void TakeDamage(float dmg)
     {
         health -= dmg;
-        if (rend != null) StartCoroutine(HitFlash());
+        if (renderers.Length > 0) StartCoroutine(HitFlash());
 
         if (health <= 0f)
         {
@@ -27,8 +32,11 @@ public class EnemyHealth : MonoBehaviour
 
     System.Collections.IEnumerator HitFlash()
     {
-        rend.material.color = hitColor;
+        foreach (Renderer r in renderers) r.material.color = hitColor;
         yield return new WaitForSeconds(0.1f);
-        rend.material.color = originalColor;
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material.color = originalColors[i];
+        }
     }
 }
