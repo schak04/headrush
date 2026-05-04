@@ -12,6 +12,10 @@ public class Gun : MonoBehaviour
     public AudioSource gunSound;
     public float flashDuration = 0.05f;
 
+    [Header("Recoil")]
+    public float shakeIntensity = 0.1f;
+    public float shakeDuration = 0.1f;
+
     void Start()
     {
         if (muzzleFlash != null) muzzleFlash.enabled = false;
@@ -29,6 +33,7 @@ public class Gun : MonoBehaviour
     {
         if (gunSound != null) gunSound.Play();
         if (muzzleFlash != null) StartCoroutine(Flash());
+        StartCoroutine(Shake());
 
         RaycastHit hit;
 
@@ -53,5 +58,23 @@ public class Gun : MonoBehaviour
         muzzleFlash.enabled = true;
         yield return new WaitForSeconds(flashDuration);
         muzzleFlash.enabled = false;
+    }
+
+    System.Collections.IEnumerator Shake()
+    {
+        Vector3 originalPos = transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < shakeDuration)
+        {
+            float x = Random.Range(-1f, 1f) * shakeIntensity;
+            float y = Random.Range(-1f, 1f) * shakeIntensity;
+
+            transform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localPosition = originalPos;
     }
 }

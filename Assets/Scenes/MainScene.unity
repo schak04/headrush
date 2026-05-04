@@ -869,6 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   health: 100
+  hitColor: {r: 0.8773585, g: 0, b: 0, a: 1}
 --- !u!195 &532595205
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1625,6 +1626,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1943756381}
   gunSound: {fileID: 2102853325}
   flashDuration: 0.05
+  shakeIntensity: 0.1
+  shakeDuration: 0.1
 --- !u!114 &1308609732
 MonoBehaviour:
   m_ObjectHideFlags: 0
