@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            Debug.Log("YOU DIED");
+            FindObjectOfType<GameManager>().EndGame(GameManager.GameState.Lost);
         }
     }
 
