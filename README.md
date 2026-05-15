@@ -2,6 +2,8 @@
 
 A single-player FPS, with a single arena, single weapon, and single enemy type. HP can be regained from perfect headshots.
 
+---
+
 ## Current Status
 
 - **Core Systems (Complete)**
@@ -18,10 +20,16 @@ A single-player FPS, with a single arena, single weapon, and single enemy type. 
 - The project is currently a fully playable (minimal) vertical slice.
 - Currently working on creating assets & refining the in-game world.
 
+---
+
 ## Asset Sources
 
 - **Gun Audio:** [Mixkit](https://mixkit.co/free-sound-effects/gun)
 
+---
+
 ## Author
 
 Saptaparno Chakraborty
+
+---
